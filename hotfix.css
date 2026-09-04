@@ -1,0 +1,2 @@
+/* Intro asset hotfix */
+.screen:has(.intro-stack),.screen:has(.form-wrap){background:#050505 url('assets/team-name-add-background.webp') center/cover no-repeat!important}.screen:has(.intro-stack)>.bg,.screen:has(.form-wrap)>.bg{display:none!important}.screen:has(.intro-stack)>.logo{display:none!important}.screen:has(.intro-stack)::before{content:'';position:absolute;z-index:3;top:2.2%;left:10%;width:80%;aspect-ratio:600/514;background:url('assets/uatw-logo.webp') center/contain no-repeat;pointer-events:none}
