@@ -131,3 +131,41 @@ button{border:0;background:none;color:inherit;padding:0}
 .held-safe-grid{width:100%;display:flex;justify-content:center;gap:4%;align-items:center}
 .held-safe-grid button{width:46%;cursor:pointer}.held-safe-grid img{display:block;width:100%;aspect-ratio:848/1264;object-fit:contain;filter:drop-shadow(0 12px 18px #000)}.held-safe-grid span{display:block;margin-top:7px;font:800 9px/1 Arial,sans-serif;letter-spacing:.08em;color:#e4c873}
 .take-it-button{margin-top:8%;width:100%;min-height:54px;border:1px solid #9c665d;border-radius:12px;background:#0a0908;color:#f0d3ce;font:800 10px/1.2 Arial,sans-serif;letter-spacing:.08em;padding:0 12px;cursor:pointer}
+
+/* Original export canvases remain intact; artwork frames expose their exact bounds. */
+.artwork{display:block;position:relative;width:100%;overflow:hidden;pointer-events:none}
+.artwork img,.art-button .artwork img{position:absolute;max-width:none;object-fit:fill;transform:none;pointer-events:none}
+.app{height:100dvh;min-height:0;max-width:430px;container-type:inline-size}
+.screen{height:100%;min-height:0}
+.screen-bg{object-fit:fill}
+.intro-content{height:100%;min-height:0;padding:4% 8% 5%;gap:8px}
+.intro-logo{display:block;flex:0 1 auto;width:auto;max-width:84%;height:27%;object-fit:contain;mix-blend-mode:screen}
+.team-list{flex:0 1 auto;gap:6px}
+.team-banner{aspect-ratio:668/184;max-height:10dvh}
+.team-banner>.artwork{position:absolute;inset:0;height:100%}
+.team-icon{left:3%;top:13%;width:19%;height:74%;object-fit:contain;border-radius:0;box-shadow:none}
+.team-copy{left:27%;right:6%;top:10%;height:80%}
+.team-title-label{font-size:8px}
+.team-name{font-size:clamp(15px,5.5cqw,23px);line-height:1.1}
+.player-label{font-size:7px}.player-name{font-size:11px}
+.remove-team{width:24px;height:24px;right:-5px;top:-3px}
+.add-team-art{flex:0 0 auto;width:72px;aspect-ratio:164/168;margin:5px 0 0;overflow:visible}
+.begin-art{width:100%;height:auto;flex:0 0 auto;margin-top:auto;overflow:visible}
+.intro-message{font-size:10px}
+.add-team-layer{height:100%;min-height:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+.team-form{width:80%;margin:15% 0 0;padding:24px 18px 18px;border:1px solid #ad853e;border-radius:14px;background:rgba(0,0,0,.9)}
+.create-team-art{height:auto;width:100%;overflow:visible;margin-top:8px}
+.cancel-art{position:relative;top:auto;left:auto;transform:none;width:62px;height:auto;overflow:visible}
+.cancel-art:active{transform:scale(.97)}
+.winner-shell{height:100%;min-height:0;padding:37% 7% 15%;justify-content:center}
+.winner-buttons{max-height:100%;gap:12px}
+.winner-btn>.artwork{position:absolute;inset:0;height:100%}
+.reveal-stage{height:100%;min-height:0;padding:8% 9% 25%}
+.flip-card{width:min(76cqw,320px);max-height:74%;height:auto}
+.challenge-copy{top:36%;bottom:19%;left:18%;right:18%;background:#eee5d0}
+.challenge-copy h2{font-size:clamp(18px,5.4cqw,25px);margin-bottom:8px}
+.challenge-copy p{font-size:clamp(11px,3.3cqw,14px)}
+.next-hand-card img{object-fit:contain}
+button:focus-visible{outline:2px solid #f1d58b;outline-offset:4px}
+@media (min-width:431px){.app{height:100dvh;min-height:0}.screen,.intro-content,.winner-shell,.add-team-layer,.reveal-stage{min-height:0}}
+@media (max-height:650px){.intro-content{gap:5px}.intro-logo{height:24%}.add-team-art{width:54px}.team-banner{max-height:9dvh}.team-title-label{display:none}.team-name{font-size:16px}.player-label{font-size:6px}.player-name{font-size:9px}.team-form{padding:16px}.team-form input{height:40px}}

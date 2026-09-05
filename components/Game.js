@@ -22,10 +22,16 @@ const SECRET_CHANCE = 0.15;
 const SECRET_COOLDOWN_HANDS = 3;
 const SAFE_CHANCE = 0.18;
 
+// Display the artwork bounds without resizing its transparent export canvas.
+function Artwork({ src, bounds, size = [848, 1264], alt = '' }) {
+  const [x, y, width, height] = bounds;
+  return <span className="artwork" style={{ aspectRatio: `${width}/${height}` }}><img src={src} alt={alt} style={{ width: `${size[0] / width * 100}%`, height: `${size[1] / height * 100}%`, left: `${-x / width * 100}%`, top: `${-y / height * 100}%` }} /></span>;
+}
+
 function TeamBanner({ team, onRemove }) {
   return (
     <article className="team-banner">
-      <img className="team-banner-art" src="/assets/Intro Team banner.webp" alt="" />
+      <Artwork src="/assets/Intro Team banner.webp" bounds={[90, 0, 668, 184]} size={[848,184]} />
       <img className="team-icon" src={team.icon} alt="" />
       <div className="team-copy">
         <div className="team-title-label">TEAM NAME</div>
@@ -44,10 +50,10 @@ function SetupScreen({ teams, onAddTeam, onRemoveTeam, onBegin }) {
   return (
     <section className="screen intro-screen active">
       <img className="screen-bg" src="/assets/Intro background.webp" alt="" />
-      <div className="intro-content">
+      <div className="intro-content"><img className="intro-logo" src="/assets/Us Against The World logo.webp" alt="Us Against the World — Who’s playing tonight?" />
         <div className="team-list">{teams.map((team) => <TeamBanner key={team.id} team={team} onRemove={() => onRemoveTeam(team.id)} />)}</div>
-        <button className="art-button add-team-art" type="button" onClick={onAddTeam} aria-label="Add team"><img src="/assets/Intro Add team button button.webp" alt="Add Team" /></button>
-        <button className="art-button begin-art" type="button" onClick={onBegin} disabled={teams.length < 2} aria-label="Let's begin"><img src="/assets/Intro background lets's begin button.webp" alt="Let's Begin" /></button>
+        <button className="art-button add-team-art" disabled={teams.length >= 5} type="button" onClick={onAddTeam} aria-label="Add team"><Artwork src="/assets/Intro Add team button button.webp" bounds={[85,433,164,168]} alt="Add Team" /></button>
+        <button className="art-button begin-art" type="button" onClick={onBegin} disabled={teams.length < 2} aria-label="Let's begin"><Artwork src="/assets/Intro background lets's begin button.webp" bounds={[110,1080,637,122]} alt="Let's Begin" /></button>
         <p className="intro-message">{teams.length < 2 ? 'Add at least 2 teams to begin.' : `${teams.length} teams ready.`}</p>
       </div>
     </section>
@@ -68,7 +74,7 @@ function AddTeamScreen({ onCancel, onCreate }) {
     <section className="screen active">
       <img className="screen-bg" src="/assets/team name add background.webp" alt="" />
       <div className="add-team-layer">
-        <img className="add-card-art" src="/assets/team name add card.webp" alt="" />
+        
         <form className="team-form" onSubmit={submit}>
           <label htmlFor="team-name">TEAM NAME</label><input id="team-name" autoComplete="off" maxLength={22} value={name} onChange={(e) => setName(e.target.value)} />
           <div className="name-row">
@@ -76,9 +82,9 @@ function AddTeamScreen({ onCancel, onCreate }) {
             <div><label htmlFor="her-name">HER NAME</label><input id="her-name" autoComplete="off" maxLength={16} value={her} onChange={(e) => setHer(e.target.value)} /></div>
           </div>
           <div className="form-error" aria-live="polite">{error}</div>
-          <button className="art-button create-team-art" type="submit" aria-label="Create team"><img src="/assets/team name add button.webp" alt="Create Team" /></button>
+          <button className="art-button create-team-art" type="submit" aria-label="Create team"><Artwork src="/assets/team name add button.webp" bounds={[177,889,495,93]} alt="Create Team" /></button>
         </form>
-        <button className="art-button cancel-art" type="button" onClick={onCancel} aria-label="Cancel"><img src="/assets/team name cancel button.webp" alt="Cancel" /></button>
+        <button className="art-button cancel-art" type="button" onClick={onCancel} aria-label="Cancel"><Artwork src="/assets/team name cancel button.webp" bounds={[345,1019,158,166]} alt="Cancel" /></button>
       </div>
     </section>
   );
@@ -111,7 +117,7 @@ function WinnerScreen({ teams, onWinner }) {
         <div className="winner-buttons">
           {teams.map((team) => (
             <button key={team.id} className="winner-btn" type="button" onClick={() => onWinner(team)}>
-              <img className="winner-banner-art" src="/assets/Team Won banner.webp" alt="" />
+              <Artwork src="/assets/Team Won banner.webp" bounds={[56,440,731,204]} />
               <img className="winner-icon" src={team.icon} alt="" />
               <span className="winner-copy"><span className="won-team">{team.name}</span><span className="won-word">WON</span></span>
               {(team.safeCards?.length || 0) > 0 && <span className="safe-count">SAFE ×{team.safeCards.length}</span>}
