@@ -1,1 +1,0 @@
-window.__ASSETS__=window.__ASSETS__||{};Object.assign(window.__ASSETS__,{"team name add background.png":"PLACEHOLDER"});
