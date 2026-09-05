@@ -25,7 +25,7 @@ const SAFE_CHANCE = 0.18;
 function TeamBanner({ team, onRemove }) {
   return (
     <article className="team-banner">
-      <img className="team-banner-art" src="/assets/Intro Team banner.png" alt="" />
+      <img className="team-banner-art" src="/assets/Intro Team banner.webp" alt="" />
       <img className="team-icon" src={team.icon} alt="" />
       <div className="team-copy">
         <div className="team-title-label">TEAM NAME</div>
@@ -43,11 +43,11 @@ function TeamBanner({ team, onRemove }) {
 function SetupScreen({ teams, onAddTeam, onRemoveTeam, onBegin }) {
   return (
     <section className="screen intro-screen active">
-      <img className="screen-bg" src="/assets/Intro background.png" alt="" />
+      <img className="screen-bg" src="/assets/Intro background.webp" alt="" />
       <div className="intro-content">
         <div className="team-list">{teams.map((team) => <TeamBanner key={team.id} team={team} onRemove={() => onRemoveTeam(team.id)} />)}</div>
-        <button className="art-button add-team-art" type="button" onClick={onAddTeam} aria-label="Add team"><img src="/assets/Intro Add team button button.png" alt="Add Team" /></button>
-        <button className="art-button begin-art" type="button" onClick={onBegin} disabled={teams.length < 2} aria-label="Let's begin"><img src="/assets/Intro background lets's begin button.png" alt="Let's Begin" /></button>
+        <button className="art-button add-team-art" type="button" onClick={onAddTeam} aria-label="Add team"><img src="/assets/Intro Add team button button.webp" alt="Add Team" /></button>
+        <button className="art-button begin-art" type="button" onClick={onBegin} disabled={teams.length < 2} aria-label="Let's begin"><img src="/assets/Intro background lets's begin button.webp" alt="Let's Begin" /></button>
         <p className="intro-message">{teams.length < 2 ? 'Add at least 2 teams to begin.' : `${teams.length} teams ready.`}</p>
       </div>
     </section>
@@ -66,9 +66,9 @@ function AddTeamScreen({ onCancel, onCreate }) {
   };
   return (
     <section className="screen active">
-      <img className="screen-bg" src="/assets/team name add background.png" alt="" />
+      <img className="screen-bg" src="/assets/team name add background.webp" alt="" />
       <div className="add-team-layer">
-        <img className="add-card-art" src="/assets/team name add card.png" alt="" />
+        <img className="add-card-art" src="/assets/team name add card.webp" alt="" />
         <form className="team-form" onSubmit={submit}>
           <label htmlFor="team-name">TEAM NAME</label><input id="team-name" autoComplete="off" maxLength={22} value={name} onChange={(e) => setName(e.target.value)} />
           <div className="name-row">
@@ -76,9 +76,9 @@ function AddTeamScreen({ onCancel, onCreate }) {
             <div><label htmlFor="her-name">HER NAME</label><input id="her-name" autoComplete="off" maxLength={16} value={her} onChange={(e) => setHer(e.target.value)} /></div>
           </div>
           <div className="form-error" aria-live="polite">{error}</div>
-          <button className="art-button create-team-art" type="submit" aria-label="Create team"><img src="/assets/team name add button.png" alt="Create Team" /></button>
+          <button className="art-button create-team-art" type="submit" aria-label="Create team"><img src="/assets/team name add button.webp" alt="Create Team" /></button>
         </form>
-        <button className="art-button cancel-art" type="button" onClick={onCancel} aria-label="Cancel"><img src="/assets/team name cancel button.png" alt="Cancel" /></button>
+        <button className="art-button cancel-art" type="button" onClick={onCancel} aria-label="Cancel"><img src="/assets/team name cancel button.webp" alt="Cancel" /></button>
       </div>
     </section>
   );
@@ -105,13 +105,13 @@ function ActiveChallenges({ teams }) {
 function WinnerScreen({ teams, onWinner }) {
   return (
     <section className="screen winner-screen active">
-      <img className="screen-bg" src="/assets/Team Won background.png" alt="" />
+      <img className="screen-bg" src="/assets/Team Won background.webp" alt="" />
       <div className="winner-shell">
         <ActiveChallenges teams={teams} />
         <div className="winner-buttons">
           {teams.map((team) => (
             <button key={team.id} className="winner-btn" type="button" onClick={() => onWinner(team)}>
-              <img className="winner-banner-art" src="/assets/Team Won banner.png" alt="" />
+              <img className="winner-banner-art" src="/assets/Team Won banner.webp" alt="" />
               <img className="winner-icon" src={team.icon} alt="" />
               <span className="winner-copy"><span className="won-team">{team.name}</span><span className="won-word">WON</span></span>
               {(team.safeCards?.length || 0) > 0 && <span className="safe-count">SAFE ×{team.safeCards.length}</span>}
@@ -135,8 +135,8 @@ function ChooseCardScreen({ winningTeam, onChoose }) {
       <div className="choice-bg gold-bg" /><div className="choice-bg rose-bg" />
       <div className="choice-copy"><div className="winning-team-label">{winningTeam?.name} WON</div><h2>CHOOSE YOUR CARD</h2></div>
       <div className="choice-stage">
-        <button className={`challenge-choice male-choice ${selected === 'man' ? 'selected' : ''}`} type="button" onClick={() => choose('man')}><span className="choice-label">MAN</span><img src="/assets/Man card back.png" alt="Man challenge card" /></button>
-        <button className={`challenge-choice woman-choice ${selected === 'woman' ? 'selected' : ''}`} type="button" onClick={() => choose('woman')}><span className="choice-label">WOMAN</span><img src="/assets/Girl card back copy.png" alt="Woman challenge card" /></button>
+        <button className={`challenge-choice male-choice ${selected === 'man' ? 'selected' : ''}`} type="button" onClick={() => choose('man')}><span className="choice-label">MAN</span><img src="/assets/Man card back.webp" alt="Man challenge card" /></button>
+        <button className={`challenge-choice woman-choice ${selected === 'woman' ? 'selected' : ''}`} type="button" onClick={() => choose('woman')}><span className="choice-label">WOMAN</span><img src="/assets/Girl card back copy.webp" alt="Woman challenge card" /></button>
       </div>
     </section>
   );
@@ -148,12 +148,12 @@ function RevealScreen({ gender, challenge, onComplete, onAccept, onShot }) {
   const isPersistent = !!challenge?.persistent;
   return (
     <section className="screen reveal-screen active">
-      <div className="reveal-bg" style={{ backgroundImage: `url("/assets/${isWoman ? 'woman card selection background.png' : 'man card selection background.png'}")` }} />
+      <div className="reveal-bg" style={{ backgroundImage: `url("/assets/${isWoman ? 'woman card selection background.webp' : 'man card selection background.webp'}")` }} />
       <div className="reveal-stage">
         <button className={`flip-card enter ${flipped ? 'flipped' : ''}`} type="button" onClick={() => setFlipped(true)} aria-label="Flip challenge card">
           <span className="flip-inner">
-            <span className="flip-face flip-back"><img src={isWoman ? '/assets/Girl card back copy.png' : '/assets/Man card back.png'} alt="Challenge card back" />{!flipped && <span className="tap-to-flip">TAP TO FLIP</span>}</span>
-            <span className="flip-face flip-front"><img src={isWoman ? '/assets/woman card front message.png' : '/assets/man card front message.png'} alt="" /><span className="challenge-copy"><span className="challenge-type">{challenge?.type}</span><h2>{challenge?.title}</h2><p>{challenge?.text}</p></span></span>
+            <span className="flip-face flip-back"><img src={isWoman ? '/assets/Girl card back copy.webp' : '/assets/Man card back.webp'} alt="Challenge card back" />{!flipped && <span className="tap-to-flip">TAP TO FLIP</span>}</span>
+            <span className="flip-face flip-front"><img src={isWoman ? '/assets/woman card front message.webp' : '/assets/man card front message.webp'} alt="" /><span className="challenge-copy"><span className="challenge-type">{challenge?.type}</span><h2>{challenge?.title}</h2><p>{challenge?.text}</p></span></span>
           </span>
         </button>
       </div>
@@ -173,7 +173,7 @@ function SecretScreen({ secret, onComplete, onShot }) {
     <section className="screen secret-screen active">
       <div className="secret-hush">SHHH... TAKE THE PHONE SOMEWHERE PRIVATE</div>
       <button className={`secret-card ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(true)} type="button">
-        {!flipped ? <img src="/assets/secret/its a Secret.png" alt="It's a Secret" /> : <div className="secret-front"><h2>IT'S A SECRET</h2><p>{secret?.text}</p><small>DO NOT TELL THE GROUP.</small></div>}
+        {!flipped ? <img src="/assets/secret/its a Secret.webp" alt="It's a Secret" /> : <div className="secret-front"><h2>IT'S A SECRET</h2><p>{secret?.text}</p><small>DO NOT TELL THE GROUP.</small></div>}
       </button>
       {flipped && <div className="decision-bar secret-decisions"><button className="decision accept" onClick={onComplete}>DONE</button><button className="decision shot" onClick={onShot}>TAKE A SHOT</button></div>}
     </section>
@@ -207,7 +207,7 @@ function ConsequenceScreen({ card, onContinue }) {
 }
 
 function NextHandScreen({ onNext }) {
-  return <section className="screen next-hand-screen active"><button className="next-hand-card" type="button" onClick={onNext} aria-label="Play the next hand"><img src="/assets/Next hand.png" alt="Play the Next Hand" /></button></section>;
+  return <section className="screen next-hand-screen active"><button className="next-hand-card" type="button" onClick={onNext} aria-label="Play the next hand"><img src="/assets/Next hand.webp" alt="Play the Next Hand" /></button></section>;
 }
 
 export default function Game() {

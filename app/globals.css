@@ -57,8 +57,8 @@ button{border:0;background:none;color:inherit;padding:0}
 .won-word{display:block;margin-top:6px;color:#d3a33b;font-size:clamp(13px,4.6vw,22px);font-weight:700;line-height:1;letter-spacing:.06em;text-shadow:0 2px 3px #000}
 .choose-screen{background:#090909;overflow:hidden}
 .choice-bg{position:absolute;inset:0;background-position:center;background-size:cover;transition:opacity .25s ease}
-.gold-bg{background-image:url('/assets/man card selection background.png');clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
-.rose-bg{background-image:url('/assets/woman card selection background.png');clip-path:polygon(50% 0,100% 0,100% 100%,50% 100%)}
+.gold-bg{background-image:url('/assets/man card selection background.webp');clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
+.rose-bg{background-image:url('/assets/woman card selection background.webp');clip-path:polygon(50% 0,100% 0,100% 100%,50% 100%)}
 .choice-copy{position:relative;z-index:2;text-align:center;padding-top:12%}
 .winning-team-label{font:700 11px/1 Arial,sans-serif;letter-spacing:.2em;color:#ead5a2;text-transform:uppercase;margin-bottom:8px}
 .choice-copy h2{margin:0;font-size:clamp(28px,8vw,40px);text-shadow:0 3px 12px #000}
