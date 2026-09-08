@@ -31,3 +31,5 @@ Players remain responsible for judging performances and enforcing drinks.
 ## Verification note
 
 Source JSX and helper JavaScript were syntax-parsed successfully in the build environment. Full `next build` could not be run here because package installation timed out on external package-network access.
+
+Deployment sync trigger: 2026-09-08.
